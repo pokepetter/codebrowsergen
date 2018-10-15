@@ -9,3 +9,5 @@ Colors python code.
 ## How to
 
     python -m codebrowsergen title(optional)
+
+This will combine all the text files in the folder into one html document.
