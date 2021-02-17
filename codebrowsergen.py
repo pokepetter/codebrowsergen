@@ -48,7 +48,9 @@ for root, dirs, files in os.walk(start_path, topdown=True):
             continue
 
         if file.endswith('.py') or '.' not in file:
-            sidebar += len(path) * '  ' + '<a href="#' + file.split(' ', 1)[0] + '">' + file.split(' ', 1)[0] + '</a>\n'
+            sidebar += len(path) * '  ' + '<a href="#'
+            sidebar += file.split(' ', 1)[0] + '">' + file.split(' ', 1)[0]
+            sidebar += '</a>\n'
         else:
             sidebar += len(path) * '  ' + file + '\n'
 
@@ -59,7 +61,8 @@ for root, dirs, files in os.walk(start_path, topdown=True):
                 filename = os.path.basename(file_path)
                 text += '\n\n\n'
                 text += '-' * 32 + '\n'
-                text += '<b id="' + filename.split('\\')[-1].split(' ', 1)[0] + '">' + filename.split('\\')[-1] + '</b>' + '\n'
+                text += '<b id="' + filename.split('\\')[-1].split(' ', 1)[0]
+                text += '">' + filename.split('\\')[-1] + '</b>' + '\n'
                 text += '-' * 32 + '\n'
 
                 t = t.read()
@@ -69,10 +72,13 @@ for root, dirs, files in os.walk(start_path, topdown=True):
 # color words
 orange_text = 'None,True,False'.split(',')
 purple_text = (
-    'class ','from ','import ','try:',' pass',' return',' continue', ' assert ',
-    ' for ',' in ', 'print','except:','except ','exec(', ' not ', ' is ',
-    ' if', '\nif', ' elif ',' else:','def ', ' and ', ' with ', ' as ', ' raise '
-    )
+    'class ','from ','import ','try:',
+    ' pass',' return',' continue', ' assert ',
+    ' for ',' in ', 'print','except:',
+    'except ','exec(', ' not ', ' is ',
+    ' if', '\nif', ' elif ',' else:','def ',
+    ' and ', ' with ', ' as ', ' raise '
+)
 blue_text = '''__init__, open,range(,dict(,
 list(,str( int(),float(,getattr(,setattr,isinstance(,type(,eval(,
 super(,object(, len(,hasattr'''.split(',')
